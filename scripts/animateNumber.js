@@ -27,3 +27,8 @@ const observeTarget = document.querySelector('.numeros');
 observer = new MutationObserver(handleMutation);
 
 observer.observe(observeTarget, { attributes: true });
+console.log('teste');
+console.log('teste');
+console.log('teste');
+console.log('teste');
+console.log('teste');
