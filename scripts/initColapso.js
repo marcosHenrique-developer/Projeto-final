@@ -3,7 +3,6 @@
 export default class Colapso {
   constructor(lists) {
     this.colapso = document.querySelectorAll(lists);
-    // const colapsoDd = document.querySelectorAll('.js-collapse dd');
     this.ativarClasse = 'collapse';
   }
 
@@ -11,7 +10,6 @@ export default class Colapso {
     itens.classList.toggle(this.ativarClasse);
     itens.nextElementSibling.classList.toggle(this.ativarClasse);
   }
-
 
   addEvent() {
     this.colapso.forEach((itens) => {
