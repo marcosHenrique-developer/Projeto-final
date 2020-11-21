@@ -1,6 +1,6 @@
 import execultarTab from './executarTab.js';
 import initColapso from './initColapso.js';
-import initScrollBar from './initScrollBar.js';
+import InitScrollBar from './initScrollBar.js';
 import execultarScoll from './execultarScroll.js';
 import modal from './modal.js';
 import tooltip from './tooltip.js';
@@ -10,9 +10,11 @@ import fetchAnimais from './fetchAnimais.js';
 import contHours from './contHours.js';
 import fetchBitcoin from './fetchBitcoin.js';
 
+const scroolSuave = new InitScrollBar('.menu-js a[href^="#"]');
+scroolSuave.init();
+
 execultarTab();
 initColapso();
-initScrollBar();
 execultarScoll();
 modal();
 tooltip();

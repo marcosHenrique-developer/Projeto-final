@@ -1,16 +1,31 @@
-export default function executarScrollBar() {
-  const linksInternos = document.querySelectorAll('.menu-js a[href^="#"]');
+export default class ScrollBar {
+  constructor(links, options) {
+    this.linksInternos = document.querySelectorAll(links);
+    if (options === undefined) {
+      this.options = { behavior: 'smooth', block: 'start' };
+    } else {
+      this.options = options;
+    }
+    this.scrollBar = this.scrollBar.bind(this);
+  }
 
-  function scrollBar(event) {
+  scrollBar(event) {
     event.preventDefault();
     const href = event.currentTarget.getAttribute('href');
     const atributo = document.querySelector(href);
-    atributo.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
+    atributo.scrollIntoView(this.options);
+  }
+
+  addEvent() {
+    this.linksInternos.forEach((links) => {
+      links.addEventListener('click', this.scrollBar);
     });
   }
-  linksInternos.forEach((links) => {
-    links.addEventListener('click', scrollBar);
-  });
+
+  init() {
+    if (this.linksInternos.length) {
+      this.addEvent();
+    }
+    return this;
+  }
 }
