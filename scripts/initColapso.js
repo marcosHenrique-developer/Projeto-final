@@ -1,4 +1,5 @@
 // Parte de execucao do interacao entre o titulo e o seus textos
+
 export default class Colapso {
   constructor(lists) {
     this.colapso = document.querySelectorAll(lists);
@@ -10,6 +11,7 @@ export default class Colapso {
     itens.classList.toggle(this.ativarClasse);
     itens.nextElementSibling.classList.toggle(this.ativarClasse);
   }
+
 
   addEvent() {
     this.colapso.forEach((itens) => {
