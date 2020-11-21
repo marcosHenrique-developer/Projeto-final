@@ -1,4 +1,4 @@
-import execultarTab from './executarTab.js';
+import TabNav from './executarTab.js';
 import Colapso from './initColapso.js';
 import ScrollBar from './initScrollBar.js';
 import execultarScoll from './execultarScroll.js';
@@ -16,7 +16,9 @@ scroolSuave.init();
 const collapso = new Colapso('.js-collapse dt');
 collapso.init();
 
-execultarTab();
+const tab = new TabNav('.tabMenu-js li', '.tabNavegacao-js section');
+tab.init();
+
 execultarScoll();
 modal();
 tooltip();
