@@ -1,20 +1,26 @@
 // Parte de execucao do interacao entre o titulo e o seus textos
-export default function executarColapso() {
-  const colapso = document.querySelectorAll('.js-collapse dt');
-  const colapsoDd = document.querySelectorAll('.js-collapse dd');
-  const ativarClasse = 'collapse';
-  function execultarColapso() {
-    this.classList.toggle(ativarClasse);
-    this.nextElementSibling.classList.toggle(ativarClasse);
+export default class Colapso {
+  constructor(lists) {
+    this.colapso = document.querySelectorAll(lists);
+    // const colapsoDd = document.querySelectorAll('.js-collapse dd');
+    this.ativarClasse = 'collapse';
   }
 
-  if (colapso.length) {
-    // colapso[0].classList.add(ativarClasse);
-    // colapso[0].nextElementSibling.classList.add(ativarClasse);
-    colapsoDd[0].classList.add(ativarClasse);
+  execultarColapso(itens) {
+    itens.classList.toggle(this.ativarClasse);
+    itens.nextElementSibling.classList.toggle(this.ativarClasse);
+  }
 
-    colapso.forEach((item) => {
-      item.addEventListener('click', execultarColapso);
+  addEvent() {
+    this.colapso.forEach((itens) => {
+      itens.addEventListener('click', () => this.execultarColapso(itens));
     });
+  }
+
+  init() {
+    if (this.colapso.length) {
+      this.execultarColapso(this.colapso[0]);
+      this.addEvent();
+    }
   }
 }
