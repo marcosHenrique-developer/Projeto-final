@@ -22,5 +22,6 @@ export default class Colapso {
       this.execultarColapso(this.colapso[0]);
       this.addEvent();
     }
+    return this;
   }
 }
