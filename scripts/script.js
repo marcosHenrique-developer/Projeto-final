@@ -2,7 +2,7 @@ import TabNav from './executarTab.js';
 import Colapso from './initColapso.js';
 import ScrollBar from './initScrollBar.js';
 import execultarScoll from './execultarScroll.js';
-import modal from './modal.js';
+import Modal from './modal.js';
 import tooltip from './tooltip.js';
 import dropDownMenu from './dropDownMenu.js';
 import menuMobile from './menuMobile.js';
@@ -19,8 +19,10 @@ collapso.init();
 const tab = new TabNav('.tabMenu-js li', '.tabNavegacao-js section');
 tab.init();
 
+const modal = new Modal('[data-modal="container"]', '[data-modal="abrir"]', '[data-modal="fechar"]');
+modal.init();
+
 execultarScoll();
-modal();
 tooltip();
 dropDownMenu();
 menuMobile();
