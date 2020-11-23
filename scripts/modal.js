@@ -7,6 +7,7 @@ export default class Modal {
 
     this.toogleModal = this.toogleModal.bind(this);
     this.fecharModal = this.fecharModal.bind(this);
+    this.handleKeyboard = this.handleKeyboard.bind(this);
   }
 
   abreModal() {
@@ -24,14 +25,14 @@ export default class Modal {
     }
   }
 
-  // handleKeyboard(event) {
-  //   if (event.key === 'Escape') {
-  //     this.showModal.classList.remove('ativar');
-  //   }
-  // }
+  handleKeyboard(event) {
+    if (event.key === 'Escape') {
+      this.showModal.classList.remove('ativar');
+    }
+  }
 
   addModalEvents() {
-    // this.showModal.addEventListener('keydown', this.handleKeyboard);
+    window.addEventListener('keydown', this.handleKeyboard);
     this.abreModa.addEventListener('click', this.toogleModal);
     this.fecharModa.addEventListener('click', this.toogleModal);
     this.showModal.addEventListener('click', this.fecharModal);
