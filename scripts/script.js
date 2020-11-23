@@ -3,7 +3,7 @@ import Colapso from './initColapso.js';
 import ScrollBar from './initScrollBar.js';
 import execultarScoll from './execultarScroll.js';
 import Modal from './modal.js';
-import tooltip from './tooltip.js';
+import Tooltip from './tooltip.js';
 import dropDownMenu from './dropDownMenu.js';
 import menuMobile from './menuMobile.js';
 import fetchAnimais from './fetchAnimais.js';
@@ -22,8 +22,10 @@ tab.init();
 const modal = new Modal('[data-modal="container"]', '[data-modal="abrir"]', '[data-modal="fechar"]');
 modal.init();
 
+const tooltip = new Tooltip('[data-tooltip]');
+tooltip.init();
+
 execultarScoll();
-tooltip();
 dropDownMenu();
 menuMobile();
 fetchAnimais();
