@@ -1,7 +1,14 @@
 // parte do codigo que eu adiciono na parte de animais uma contagem em animação
-export default function animateAnimals() {
-  const numbers = document.querySelectorAll('[data-numero]');
-  numbers.forEach((number) => {
+export default class AnimateNumber {
+  constructor(numbers, observerTarget, observerClass) {
+    this.numbers = document.querySelectorAll(numbers);
+    this.observeTarget = document.querySelector(observerTarget);
+    this.observerClass = observerClass;
+
+    this.handleMutation = this.handleMutation.bind(this);
+  }
+
+  static incrementNumber(number) {
     const total = +number.innerText;
     const incremento = Math.floor(total / 100);
     let start = 0;
@@ -13,17 +20,31 @@ export default function animateAnimals() {
         clearInterval(timer);
       }
     }, 25 * Math.random());
-  });
-}
-// colocar um observador de mudancas para adicionar o timer só quando eu chegar na section
-let observer;
-function handleMutation(mutation) {
-  if (mutation[0].target.classList.contains('ativo')) {
-    observer.disconnect();
-    animateAnimals();
+  }
+
+  animateNumbers() {
+    this.numbers.forEach((element) => {
+      this.constructor.incrementNumber(element);
+    });
+  }
+
+  // colocar um observador de mudancas para adicionar o timer só quando eu chegar na section
+  handleMutation(mutation) {
+    if (mutation[0].target.classList.contains(this.observerClass)) {
+      this.observer.disconnect();
+      this.animateNumbers();
+    }
+  }
+
+  addEventObserver() {
+    this.observer = new MutationObserver(this.handleMutation);
+    this.observer.observe(this.observeTarget, { attributes: true });
+  }
+
+  init() {
+    if (this.numbers.length && this.observeTarget) {
+      this.addEventObserver();
+    }
+    return this;
   }
 }
-const observeTarget = document.querySelector('.numeros');
-observer = new MutationObserver(handleMutation);
-
-observer.observe(observeTarget, { attributes: true });
