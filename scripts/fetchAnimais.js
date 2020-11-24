@@ -1,4 +1,4 @@
-import animateNumber from './animateNumber.js';
+import AnimateNumber from './animateNumber.js';
 // puxar dados de uma api externa criada como arquibo e criando uma div com os dados
 // puxados
 // talvez essa parte fique em comentario pois as funcionalidades funcionan com um
@@ -19,7 +19,8 @@ export default function fetchAnimais() {
         const criaAnimals = createAnimals(animals);
         gridanimals.appendChild(criaAnimals);
       });
-      animateNumber();
+      const anima = new AnimateNumber('[data-numero]', '.numeros', 'ativo');
+      anima.init();
     } catch (erro) {
       console.log(Error(erro));
     }
