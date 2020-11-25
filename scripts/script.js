@@ -1,7 +1,7 @@
 import TabNav from './executarTab.js';
 import Colapso from './initColapso.js';
 import ScrollBar from './initScrollBar.js';
-import execultarScoll from './execultarScroll.js';
+import ExecultarScoll from './execultarScroll.js';
 import Modal from './modal.js';
 import Tooltip from './tooltip.js';
 import dropDownMenu from './dropDownMenu.js';
@@ -19,13 +19,19 @@ collapso.init();
 const tab = new TabNav('.tabMenu-js li', '.tabNavegacao-js section');
 tab.init();
 
-const modal = new Modal('[data-modal="container"]', '[data-modal="abrir"]', '[data-modal="fechar"]');
+const modal = new Modal(
+  '[data-modal="container"]',
+  '[data-modal="abrir"]',
+  '[data-modal="fechar"]',
+);
 modal.init();
 
 const tooltip = new Tooltip('[data-tooltip]');
 tooltip.init();
 
-execultarScoll();
+const scroll = new ExecultarScoll('.js-scroll');
+scroll.init();
+
 dropDownMenu();
 menuMobile();
 fetchAnimais();
