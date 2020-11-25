@@ -1,10 +1,12 @@
+import debouce from './debounce.js';
+
 // Parte da animacao de scroll das sections
-export default class Scoll {
+export default class ExecultarScoll {
   constructor(sections) {
     this.sections = document.querySelectorAll(sections);
     this.windowMetade = window.innerHeight * 0.6;
 
-    this.checkDistance = this.checkDistance.bind(this);
+    this.checkDistance = debouce(this.checkDistance.bind(this), 100);
   }
 
   getDistance() {
