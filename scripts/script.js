@@ -4,7 +4,7 @@ import ScrollBar from './initScrollBar.js';
 import ExecultarScoll from './execultarScroll.js';
 import Modal from './modal.js';
 import Tooltip from './tooltip.js';
-import dropDownMenu from './dropDownMenu.js';
+import DownMenu from './dropDownMenu.js';
 import menuMobile from './menuMobile.js';
 import fetchAnimais from './fetchAnimais.js';
 import contHours from './contHours.js';
@@ -32,7 +32,9 @@ tooltip.init();
 const scroll = new ExecultarScoll('.js-scroll');
 scroll.init();
 
-dropDownMenu();
+const dropDown = new DownMenu('[data-dropdown]');
+dropDown.init();
+
 menuMobile();
 fetchAnimais();
 contHours();
