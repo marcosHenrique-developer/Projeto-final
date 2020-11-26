@@ -5,7 +5,7 @@ import ExecultarScoll from './execultarScroll.js';
 import Modal from './modal.js';
 import Tooltip from './tooltip.js';
 import DownMenu from './dropDownMenu.js';
-import menuMobile from './menuMobile.js';
+import Mobile from './menuMobile.js';
 import fetchAnimais from './fetchAnimais.js';
 import contHours from './contHours.js';
 import fetchBitcoin from './fetchBitcoin.js';
@@ -35,7 +35,9 @@ scroll.init();
 const dropDown = new DownMenu('[data-dropdown]');
 dropDown.init();
 
-menuMobile();
+const menuMobile = new Mobile('[data-menu="button"]', '[data-menu="list"]');
+menuMobile.init();
+
 fetchAnimais();
 contHours();
 fetchBitcoin();
