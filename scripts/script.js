@@ -7,7 +7,7 @@ import Tooltip from './tooltip.js';
 import DownMenu from './dropDownMenu.js';
 import Mobile from './menuMobile.js';
 import fetchAnimais from './fetchAnimais.js';
-import contHours from './contHours.js';
+import ContHours from './contHours.js';
 import fetchBitcoin from './fetchBitcoin.js';
 
 const scroolSuave = new ScrollBar('.menu-js a[href^="#"]');
@@ -38,6 +38,8 @@ dropDown.init();
 const menuMobile = new Mobile('[data-menu="button"]', '[data-menu="list"]');
 menuMobile.init();
 
+const hours = new ContHours('[data-semana]', 'active');
+hours.init();
+
 fetchAnimais();
-contHours();
 fetchBitcoin();
