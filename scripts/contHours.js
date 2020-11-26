@@ -1,17 +1,39 @@
 // Funcionalidade de verificar o horario e ativar uma classe de ativo para usuario
 // verifica o dia da semana para ver se a loja esta aberta ou nao.
-export default function classHour() {
-  const funcionamento = document.querySelector('[data-semana]');
-  const daysWeek = funcionamento.dataset.semana.split(',').map(Number);
-  const hoursOn = funcionamento.dataset.horario.split(',').map(Number);
-  const dateNow = new Date();
-  const day = dateNow.getDay();
-  const hour = dateNow.getHours();
+export default class Hours {
+  constructor(openHours, activeClass) {
+    this.funcionamento = document.querySelector(openHours);
+    this.class = activeClass;
+  }
 
-  const weekOpen = daysWeek.indexOf(day) !== -1;
-  const hourOpen = hour >= hoursOn[0] && hour < hoursOn[1];
+  checkOpen() {
+    this.daysWeek = this.funcionamento.dataset.semana.split(',').map(Number);
+    this.hoursOn = this.funcionamento.dataset.horario.split(',').map(Number);
+  }
 
-  if (weekOpen && hourOpen) {
-    funcionamento.classList.add('active');
+  checkNow() {
+    this.dateNow = new Date();
+    this.day = this.dateNow.getDay();
+    this.hour = this.dateNow.getUTCHours() - 3;
+  }
+
+  itsOpen() {
+    const weekOpen = this.daysWeek.indexOf(this.day) !== -1;
+    const hourOpen = this.hour >= this.hoursOn[0] && this.hour < this.hoursOn[1];
+    return weekOpen && hourOpen;
+  }
+
+  activeOpen() {
+    if (this.itsOpen) {
+      this.funcionamento.classList.add(this.class);
+    }
+  }
+
+  init() {
+    if (this.funcionamento) {
+      this.checkOpen();
+      this.checkNow();
+      this.activeOpen();
+    }
   }
 }
