@@ -9,6 +9,12 @@ import Mobile from './menuMobile.js';
 import fetchAnimais from './fetchAnimais.js';
 import ContHours from './contHours.js';
 import fetchBitcoin from './fetchBitcoin.js';
+import SlideNav from './slide.js';
+
+const slide = new SlideNav('.slide', '.slide-wrapper');
+slide.init();
+slide.addArrow('.prev', '.next');
+slide.addControl('.custom-controls');
 
 const scroolSuave = new ScrollBar('.menu-js a[href^="#"]');
 scroolSuave.init();
