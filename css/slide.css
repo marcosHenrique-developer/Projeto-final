@@ -91,7 +91,7 @@
   border-radius: 1.5rem;
   width: 2.5rem;
   height: 2.5rem;
-  background: #fb5 url('../slide/img/arrow.svg') center center no-repeat;
+  background: #fb5 url('../imgs/arrow.svg') center center no-repeat;
 }
 
 .arrow-nav button:hover {
