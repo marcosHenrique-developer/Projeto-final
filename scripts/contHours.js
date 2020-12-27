@@ -24,7 +24,7 @@ export default class Hours {
   }
 
   activeOpen() {
-    if (this.itsOpen) {
+    if (this.itsOpen()) {
       this.funcionamento.classList.add(this.class);
     }
   }
